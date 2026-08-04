@@ -1,0 +1,64 @@
+<section class="about-banner">
+
+    <div class="content">
+
+        <h1>About ShopVerse</h1>
+
+        <p>
+            ShopVerse is a modern eCommerce platform offering
+            premium products with affordable prices and
+            excellent customer service.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="about-company">
+
+    <div class="image">
+
+        <img src="assets/images/about.jpg" alt="About">
+
+    </div>
+
+    <div class="text">
+
+        <h2>Who We Are</h2>
+
+        <p>
+            We are passionate about providing high-quality
+            electronics, fashion, furniture, home appliances
+            and lifestyle products to customers all over India.
+        </p>
+
+        <p>
+            Our mission is to make online shopping simple,
+            secure and enjoyable.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2>Why Choose Us</h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card" *ngFor="let feature of features">
+
+            <div class="icon">
+                {{feature.icon}}
+            </div>
+
+            <h3>{{feature.title}}</h3>
+
+            <p>{{feature.description}}</p>
+
+        </div>
+
+    </div>
+
+</section>

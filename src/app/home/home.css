@@ -1,0 +1,146 @@
+.hero{
+    height:90vh;
+    background:
+    linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url('/d4118ecd-81c9-4bb8-a6ac-c76ad8b11ef5.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+}
+
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.hero button{
+    padding:15px 40px;
+    background:#ffb400;
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hero button:hover{
+    background:#4f46e5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.category,
+.products{
+    padding:70px 8%;
+}
+
+.category h2,
+.products h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:35px;
+}
+
+.category-grid,
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.category-card,
+.product-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    transition:.3s;
+    text-align:center;
+}
+
+.category-card:hover,
+.product-card:hover{
+    transform:translateY(-10px);
+}
+
+.category-card img,
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.product-card h3{
+    margin:15px 0;
+}
+
+.product-card p{
+    font-size:22px;
+    font-weight:bold;
+    color:#6d5dfc;
+}
+
+.product-card button{
+    margin:20px;
+    padding:12px 25px;
+    border:none;
+    background:#6d5dfc;
+    color:#fff;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.offer{
+    background:#6d5dfc;
+    color:#fff;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.offer h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.offer p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.offer button{
+    padding:15px 35px;
+    border:none;
+    background:#fff;
+    color:#6d5dfc;
+    font-weight:bold;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+}
+.product-card {
+    cursor: pointer;
+}       

@@ -1,0 +1,237 @@
+/* ===========================
+   Global
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ===========================
+   Background
+=========================== */
+
+.login-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+        url('/d4118ecd-81c9-4bb8-a6ac-c76ad8b11ef5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+
+.navbar {
+    height: 90px;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+
+.hero{
+    min-height: calc(100vh - 90px);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 80px;
+}
+
+/* ===========================
+   Left Content
+=========================== */
+
+.left-content {
+    width: 50%;
+    animation: fadeLeft .8s ease;
+}
+
+.left-content h4 {
+    color: #ffb400;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.left-content h1 {
+    font-size: 74px;
+    line-height: 86px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.left-content h1 span {
+    color: #ffb400;
+}
+
+.left-content p {
+    width: 80%;
+    color: #ddd;
+    font-size: 22px;
+    line-height: 38px;
+    margin-bottom: 35px;
+}
+
+/* ===========================
+   Features
+=========================== */
+
+.feature {
+    width: 340px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border-left: 4px solid #ffb400;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    font-size: 18px;
+    transition: .3s;
+}
+
+.feature:hover {
+    transform: translateX(10px);
+    background: rgba(255,180,0,.18);
+}
+
+/* ===========================
+   Login Card
+=========================== */
+/* ===========================
+   Login Card
+=========================== */
+
+.login-card {
+    width: 430px;
+    min-height: 760px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    padding: 45px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    animation: fadeRight .8s ease;
+}
+
+.login-card h2 {
+    text-align: center;
+    color: #ffb400;
+    font-size: 58px;
+    font-weight: 700;
+    margin-bottom: 20px;   /* Increased space */
+}
+
+.login-card > p:first-of-type {
+    text-align: center;
+    color: #d0d0d0;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 35px;   /* Space before first input */
+}
+
+
+
+.login-card input {
+    width: 100%;
+    height: 56px;
+    padding: 0 18px;
+
+    margin-bottom: 18px;   /* Better spacing */
+
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #3b3b3b;
+    color: #fff;
+    font-size: 17px;
+}
+
+.login-card input::placeholder {
+    color: #bdbdbd;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: #ddd;
+    font-size: 16px;
+}
+
+.remember input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.login-card button {
+    width: 100%;
+    height: 58px;
+    background: #ffb400;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-card button:hover {
+    background: #ff9800;
+    transform: translateY(-2px);
+}
+
+.register-text {
+    margin-top: 20px;
+    text-align: center;
+    color: #ddd;
+    font-size: 17px;
+}
+
+.register-text a {
+    color: #ffb400;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+@keyframes fadeLeft{
+
+    0%{
+        opacity:0;
+        transform:translateX(-120px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeRight{
+
+    0%{
+        opacity:0;
+        transform:translateX(120px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+}

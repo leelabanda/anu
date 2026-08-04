@@ -1,0 +1,92 @@
+<div class="register-page">
+    <!-- Hero -->
+
+    <div class="hero">
+
+        <!-- Left -->
+
+        <div class="left-content">
+
+            <h4>WELCOME TO ANU 3D PRINTING</h4>
+
+            <h1>
+                Bring Your <br>
+                <span>Creative Ideas</span><br>
+                To Life
+            </h1>
+
+            <p>
+                Join ANU 3D Printing today and transform
+                your imagination into reality with premium
+                quality 3D printing solutions.
+            </p>
+
+            <div class="feature">
+                🚀 Fast & Professional Printing
+            </div>
+
+            <div class="feature">
+                🎨 Custom 3D Design Support
+            </div>
+
+            <div class="feature">
+                📦 Safe Delivery Across India
+            </div>
+
+        </div>
+
+        <!-- Register Card -->
+
+        <div class="register-card">
+
+            <h2>Create Account</h2>
+
+            <p>Start your 3D Printing Journey</p>
+
+            <form (ngSubmit)="register()">
+
+                <input type="text" placeholder="Full Name" [(ngModel)]="fullName" name="fullName">
+
+                <input type="email" placeholder="Email Address" [(ngModel)]="email" name="email">
+
+                <input type="text" placeholder="Phone Number" [(ngModel)]="phone" name="phone">
+
+                <input [type]="showPassword ? 'text':'password'" placeholder="Password" [(ngModel)]="password"
+                    name="password">
+
+                <input [type]="showPassword ? 'text':'password'" placeholder="Confirm Password"
+                    [(ngModel)]="confirmPassword" name="confirmPassword">
+
+                <label class="remember">
+
+                    <input type="checkbox" [(ngModel)]="showPassword" name="show">
+
+                    Show Password
+
+                </label>
+
+                <button type="submit">
+
+                    Create Account
+
+                </button>
+
+                <p class="register-text">
+
+                    Already have an account?
+
+                    <a routerLink="/login">
+
+                        Login
+
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>n
+
+</div>

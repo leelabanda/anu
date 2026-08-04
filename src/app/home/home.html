@@ -1,0 +1,56 @@
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Discover Amazing Products</h1>
+
+        <p>
+            Shop the latest collections with premium quality
+            and exclusive offers.
+        </p>
+
+<button (click)="scrollToProducts()">Shop Now</button>
+    </div>
+
+</section>
+
+<section class="category">
+
+    <h2>Shop by Category</h2>
+
+    <div class="category-grid">
+
+        <div class="category-card" *ngFor="let c of categories">
+
+            <img [src]="c.image">
+            <h3>{{ c.name }}</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- IMPORTANT -->
+<section class="products" id="products">
+
+    <h2>Trending Products</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card" *ngFor="let p of products">
+<a [routerLink]="['/product-details', p.id]">
+            <img [src]="p.image" [alt]="p.name">
+</a>
+            <h3>{{ p.name }}</h3>
+
+            <p>₹{{ p.price }}</p>
+
+            <button>Add To Cart</button>
+
+        </div>
+
+    </div>
+
+</section>
+

@@ -1,0 +1,35 @@
+<div class="page-wrapper">
+
+  <div class="card" *ngFor="let product of products">
+
+    <img [src]="product.image" class="product-image">
+
+    <div class="details">
+
+      <h2>{{product.name}}</h2>
+
+      <h3>₹{{product.currentPrice}}</h3>
+
+      <p>
+        <span class="old-price">₹{{product.mrp}}</span>
+        <span class="discount">
+          {{ getDiscount(product.mrp, product.currentPrice) }}% OFF
+        </span>
+      </p>
+
+      <ul>
+        <li>✔ Perfect for Couples & Gifts</li>
+        <li>✔ Beautiful Warm Lighting</li>
+        <li>✔ Premium Quality</li>
+      </ul>
+
+      <div class="btn-group">
+        <button class="buy">Buy Now</button>
+        <button class="cart">Add to Cart</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

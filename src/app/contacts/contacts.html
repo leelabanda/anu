@@ -1,0 +1,80 @@
+<section class="contact">
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <h1>Contact Us</h1>
+
+            <p>
+                We'd love to hear from you.
+                Send us a message anytime.
+            </p>
+
+            <div class="info">
+
+                <h3>Address</h3>
+                <p>📍 Chennai, Tamil Nadu, India</p>
+
+            </div>
+
+            <div class="info">
+
+                <h3>Phone</h3>
+                <p>📞 +91 9444210661</p>
+
+            </div>
+
+            <div class="info">
+
+                <h3>Email</h3>
+                <p>✉ anu.3dprints@gmail.com</p>
+
+            </div>
+
+        </div>
+
+        <div class="contact-form">
+
+            <form (ngSubmit)="sendMessage()">
+
+                <input
+                    type="text"
+                    name="name"
+                    [(ngModel)]="contact.name"
+                    placeholder="Your Name"
+                    required>
+
+                <input
+                    type="email"
+                    name="email"
+                    [(ngModel)]="contact.email"
+                    placeholder="Your Email"
+                    required>
+
+                <input
+                    type="text"
+                    name="subject"
+                    [(ngModel)]="contact.subject"
+                    placeholder="Subject"
+                    required>
+
+                <textarea
+                    rows="6"
+                    name="message"
+                    [(ngModel)]="contact.message"
+                    placeholder="Your Message"
+                    required>
+                </textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
