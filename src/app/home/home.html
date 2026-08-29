@@ -39,7 +39,7 @@
     <div class="product-grid">
 
         <div class="product-card" *ngFor="let p of products">
-<a [routerLink]="['/product-details', p.id]">
+<a [routerLink]="['/main-component', p.id]">
             <img [src]="p.image" [alt]="p.name">
 </a>
             <h3>{{ p.name }}</h3>

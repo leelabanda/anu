@@ -17,7 +17,9 @@ export class LoginComponent {
 
   login() {
     alert('Login Successful!');
-    this.router.navigate(['/home']);
+      localStorage.setItem('isLoggedIn', 'true');
+
+    this.router.navigate(['/buynow']);
   }
 
 }

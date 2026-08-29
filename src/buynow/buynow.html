@@ -1,0 +1,217 @@
+<div class="checkout-page">
+
+    <div class="checkout-container">
+
+        <h2>Checkout</h2>
+
+        <hr>
+
+
+        <!-- ========================= -->
+        <!-- PRODUCTS -->
+        <!-- ========================= -->
+
+        <div
+            class="checkout-product"
+            *ngFor="let item of buyNowItems"
+        >
+
+            <!-- IMAGE -->
+
+            <div class="product-image">
+
+                <img
+                    [src]="item.image"
+                    [alt]="item.name"
+                >
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div class="product-details">
+
+                <h3>
+                    {{ item.name }}
+                </h3>
+
+                <h4>
+                    ₹{{ item.price }}
+                </h4>
+
+
+                <!-- QUANTITY -->
+
+                <div class="quantity">
+
+                    <span>Quantity</span>
+
+                    <button
+                        type="button"
+                        (click)="decreaseQuantity(item)"
+                    >
+                        −
+                    </button>
+
+                    <span class="quantity-number">
+                        {{ item.quantity || 1 }}
+                    </span>
+
+                    <button
+                        type="button"
+                        (click)="increaseQuantity(item)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <!-- REMOVE -->
+
+                <button
+                    type="button"
+                    class="remove-btn"
+                    (click)="removeItem(buyNowItems.indexOf(item))"
+                >
+                    Remove
+                </button>
+
+            </div>
+
+
+            <!-- ITEM TOTAL -->
+
+            <div class="item-total">
+
+                <small>Total</small>
+
+                <strong>
+                    ₹{{ getItemTotal(item) }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- CUSTOMER DETAILS -->
+        <!-- ========================= -->
+
+        <div
+            class="customer-section"
+            *ngIf="buyNowItems.length > 0"
+        >
+
+            <h3>Customer Details</h3>
+
+
+            <input
+                type="text"
+                placeholder="Full Name"
+                [(ngModel)]="fullName"
+            >
+
+
+            <input
+                type="tel"
+                placeholder="Phone Number"
+                [(ngModel)]="phoneNumber"
+            >
+
+
+            <textarea
+                placeholder="Delivery Address"
+                [(ngModel)]="deliveryAddress"
+            ></textarea>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- ORDER SUMMARY -->
+        <!-- ========================= -->
+
+        <div
+            class="order-summary"
+            *ngIf="buyNowItems.length > 0"
+        >
+
+            <h3>Order Summary</h3>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Products
+                </span>
+
+                <span>
+                    {{ buyNowItems.length }}
+                </span>
+
+            </div>
+
+
+            <div class="summary-row total-row">
+
+                <strong>
+                    Total
+                </strong>
+
+                <strong>
+                    ₹{{ getTotal() }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- PLACE ORDER -->
+        <!-- ========================= -->
+
+        <div
+            class="place-order-section"
+            *ngIf="buyNowItems.length > 0"
+        >
+
+            <button
+                type="button"
+                class="place-order-btn"
+                (click)="placeOrder()"
+            >
+                🛒 Place Order
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- EMPTY CHECKOUT -->
+        <!-- ========================= -->
+
+        <div
+            class="empty-checkout"
+            *ngIf="buyNowItems.length === 0"
+        >
+
+            <h3>
+                No products in checkout
+            </h3>
+
+            <button
+                type="button"
+                routerLink="/products"
+            >
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

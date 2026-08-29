@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { NavbarComponent } from './navbar/navbar';
 import { FooterComponent } from './footer/footer';
-import { HomeComponent } from './home/home';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,10 @@ import { HomeComponent } from './home/home';
   imports: [
     RouterOutlet,
     NavbarComponent,
-    FooterComponent,
+    FooterComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App{
+export class App {
 }

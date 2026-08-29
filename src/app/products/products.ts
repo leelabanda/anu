@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './products.html',
   styleUrls: ['./products.css']
 })
-export class ProductHeaderComponent {
+export class ProductsComponent {
 
   cartCount: number = 0;
 

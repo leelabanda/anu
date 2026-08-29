@@ -1,0 +1,213 @@
+<div class="wishlist-page">
+
+  <!-- ================= HEADER ================= -->
+
+  <div class="wishlist-header">
+
+    <div>
+      <h1>
+        My Wishlist
+        <span>♥</span>
+      </h1>
+
+      <p>
+        {{ wishlist.length }} items saved for later
+      </p>
+    </div>
+
+    <button
+      class="continue-btn"
+      (click)="shopNow()">
+
+      Continue Shopping
+
+    </button>
+
+  </div>
+
+
+  <!-- ================= EMPTY WISHLIST ================= -->
+
+  <div
+    class="empty-wishlist"
+    *ngIf="wishlist.length === 0">
+
+    <div class="empty-icon">
+      ♡
+    </div>
+
+    <h2>Your Wishlist is Empty</h2>
+
+    <p>
+      Save your favourite products here and buy them later.
+    </p>
+
+    <button
+      class="shop-btn"
+      (click)="shopNow()">
+
+      Start Shopping
+
+    </button>
+
+  </div>
+
+
+  <!-- ================= PRODUCTS ================= -->
+
+  <div
+    class="wishlist-container"
+    *ngIf="wishlist.length > 0">
+
+    <div
+      class="product-card"
+      *ngFor="let product of wishlist">
+
+
+      <!-- Discount -->
+
+      <div class="discount">
+        {{ getDiscount(product) }}% OFF
+      </div>
+
+
+      <!-- Remove -->
+
+      <button
+        class="remove-btn"
+        title="Remove from wishlist"
+        (click)="removeFromWishlist(product)">
+
+        ×
+
+      </button>
+
+
+      <!-- Product Image -->
+
+      <div class="product-image">
+
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          onerror="this.src='assets/no-image.png'">
+
+      </div>
+
+
+      <!-- Product Details -->
+
+      <div class="product-details">
+
+        <h2>
+          {{ product.name }}
+        </h2>
+
+
+        <!-- Rating -->
+
+        <div class="rating">
+
+          <span
+            *ngFor="let star of getStars(product.rating)"
+            [class.full]="star === 'full'"
+            [class.half]="star === 'half'"
+            [class.empty]="star === 'empty'">
+
+            ★
+
+          </span>
+
+          <small>
+            {{ product.rating }}
+            ({{ product.reviews }})
+          </small>
+
+        </div>
+
+
+        <!-- Price -->
+
+        <div class="price-section">
+
+          <span class="price">
+            ₹{{ product.price | number }}
+          </span>
+
+          <span class="old-price">
+            ₹{{ product.oldPrice | number }}
+          </span>
+
+        </div>
+
+
+        <!-- Stock -->
+
+        <div
+          class="stock"
+          [class.out-stock]="!product.inStock">
+
+          <span *ngIf="product.inStock">
+            ● In Stock
+          </span>
+
+          <span *ngIf="!product.inStock">
+            ● Out of Stock
+          </span>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+          <button
+            class="cart-btn"
+            [disabled]="!product.inStock"
+            (click)="addToCart(product)">
+
+            🛒 Add to Cart
+
+          </button>
+
+          <button
+            class="buy-btn"
+            [disabled]="!product.inStock"
+            (click)="addToCart(product)">
+
+            Buy Now
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= SUMMARY ================= -->
+
+  <div
+    class="wishlist-summary"
+    *ngIf="wishlist.length > 0">
+
+    <div>
+      <span>Wishlist Items</span>
+      <strong>{{ wishlist.length }}</strong>
+    </div>
+
+    <div>
+      <span>Total Value</span>
+
+      <strong>
+        ₹{{ getTotal() | number }}
+      </strong>
+    </div>
+
+  </div>
+
+</div>

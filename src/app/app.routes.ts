@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { NavbarComponent } from './navbar/navbar';
 import { FooterComponent } from './footer/footer';
 import { LoginComponent } from './login/login';
@@ -7,29 +8,159 @@ import { AboutComponent } from './about/about';
 import { ContactComponent } from './contacts/contacts';
 import { HomeComponent } from './home/home';
 import { MainComponent } from '../main-component/main-component';
-import { ProductHeaderComponent } from './products/products';
-import { ProductComponent } from '../product-details/product-details';
-import { CartService } from './cart/cart';
-import { Cartcomponent } from './cartcomponent/cartcomponent';
+
+import { FramesComponent } from '../frames/frames';
+import { Keychains } from '../keychains/keychains';
+import { Toys } from '../toys/toys';
+
+import { DetProductComponent } from '../det-product/det-product';
+import { BuyNowComponent } from '../buynow/buynow';
+import { Cartcomponent } from './cart/cart';
+import { ProductsComponent } from '../product-details/product-details';
+import { WishlistComponent } from '../wishlist/wishlist';
+import { Profile } from '../profile/profile';
 
 export const routes: Routes = [
-   { path: '', redirectTo: 'main-component', pathMatch: 'full' },
-   {path: 'main-component',component:MainComponent },
-  {path: 'Navbar',component: NavbarComponent},
-  {path: 'Footer',component: FooterComponent},
 
-  {path: 'login',component: LoginComponent},
-  {path: 'Register',component: RegisterComponent},
-  {path: 'About',component: AboutComponent},
-  {path: 'contact',component: ContactComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'home',component:HomeComponent},
-  {path: 'product-details',component:ProductComponent},
-{ path: 'products', component: ProductComponent },
-{path:'cart',component:Cartcomponent}
+  // =========================
+  // DEFAULT
+  // =========================
 
+  {
+    path: '',
+    redirectTo: 'main-component',
+    pathMatch: 'full'
+  },
 
+  // =========================
+  // MAIN
+  // =========================
 
+  {
+    path: 'main-component',
+    component: MainComponent
+  },
 
+  // =========================
+  // NAVBAR / FOOTER
+  // =========================
+
+  {
+    path: 'Navbar',
+    component: NavbarComponent
+  },
+
+  {
+    path: 'Footer',
+    component: FooterComponent
+  },
+
+  // =========================
+  // AUTH
+  // =========================
+
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+
+  // =========================
+  // PAGES
+  // =========================
+
+  {
+    path: 'About',
+    component: AboutComponent
+  },
+  {
+    path: 'wishlist',
+    component: WishlistComponent
+  },
+
+  {
+    path: 'contact',
+    component: ContactComponent
+  },
+
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'profile',
+    component: Profile
+  },
+
+  // =========================
+  // PRODUCTS
+  // =========================
+
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
+
+  // =========================
+  // PRODUCT DETAILS
+  // =========================
+
+  {
+    path: 'product-details/:id',
+    component: DetProductComponent,
+    data: {
+      renderMode: 'client'
+    }
+  },
+
+  // =========================
+  // BUY NOW
+  // =========================
+
+  {
+    path: 'buynow',
+    component: BuyNowComponent
+  },
+
+  // =========================
+  // CART
+  // =========================
+
+  {
+    path: 'cart',
+    component: Cartcomponent
+  },
+
+  // =========================
+  // CATEGORY ROUTES
+  // =========================
+
+  {
+    path: 'frames',
+    component: FramesComponent
+  },
+
+  {
+    path: 'keychains',
+    component: Keychains
+  },
+
+  {
+    path: 'toys',
+    component: Toys
+  },
+
+  // =========================
+  // INVALID ROUTE
+  // =========================
+
+  {
+    path: '**',
+    redirectTo: 'products'
+  }
 
 ];

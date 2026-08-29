@@ -1,0 +1,249 @@
+
+
+
+<!-- ================= PRODUCT DETAILS ================= -->
+
+@if (product) {
+
+  <main class="details-page">
+
+    
+
+
+    <!-- PRODUCT CARD -->
+
+    <section class="product-detail-card">
+
+
+      <!-- IMAGE -->
+
+      <div class="detail-image-container">
+
+        <img
+          [src]="product.image"
+          [alt]="product.name"
+          class="detail-image"
+        >
+
+      </div>
+
+
+      <!-- DETAILS -->
+
+      <div class="detail-info">
+
+        <h1>
+          {{ product.name }}
+        </h1>
+
+
+        <!-- RATING -->
+
+        <div class="detail-rating">
+
+          <span class="stars">
+            ★★★★★
+          </span>
+
+          <span>
+            ({{ product.reviews }} Reviews)
+          </span>
+
+        </div>
+
+
+        <!-- PRICE -->
+
+        <div class="price-area">
+
+          <h2 class="detail-price">
+
+            ₹{{ product.price }}
+
+          </h2>
+
+          <span class="old-price">
+
+            ₹{{ product.oldPrice }}
+
+          </span>
+
+          <span class="discount">
+
+            {{ getDiscount() }}% OFF
+
+          </span>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="detail-description">
+
+          {{ product.description }}
+
+        </p>
+
+
+        <!-- FEATURES -->
+
+        <ul class="detail-features">
+
+          <li
+            *ngFor="let feature of product.features">
+
+            ✓ {{ feature }}
+
+          </li>
+
+        </ul>
+
+
+        <!-- QUANTITY -->
+
+        <div class="quantity-section">
+
+          <span class="quantity-label">
+            Quantity
+          </span>
+
+          <div class="quantity">
+
+            <button
+              (click)="decreaseQuantity()">
+
+              −
+
+            </button>
+
+            <span>
+              {{ quantity }}
+            </span>
+
+            <button
+              (click)="increaseQuantity()">
+
+              +
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="detail-buttons">
+
+
+
+          <button
+            class="cart-button"
+            (click)="addToCart()">
+
+            🛒 Add to Cart
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+}
+
+
+<!-- ================= FOOTER FEATURES ================= -->
+
+<section class="footer-features">
+
+
+  <div>
+
+    <span class="feature-icon">
+      🚚
+    </span>
+
+    <strong>
+      Free Shipping
+    </strong>
+
+    <small>
+      On orders above ₹999
+    </small>
+
+  </div>
+
+
+  <div>
+
+    <span class="feature-icon">
+      🛡️
+    </span>
+
+    <strong>
+      Secure Payments
+    </strong>
+
+    <small>
+      100% secure checkout
+    </small>
+
+  </div>
+
+
+  <div>
+
+    <span class="feature-icon">
+      🔄
+    </span>
+
+    <strong>
+      Easy Returns
+    </strong>
+
+    <small>
+      Hassle free returns
+    </small>
+
+  </div>
+
+
+  <div>
+
+    <span class="feature-icon">
+      🎧
+    </span>
+
+    <strong>
+      24/7 Customer Support
+    </strong>
+
+    <small>
+      We are here to help
+    </small>
+
+  </div>
+
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+  <div>
+    © 2026 ANU 3D Printing Products
+  </div>
+
+  <div>
+    Customized 3D Printed Products
+  </div>
+
+</footer>

@@ -1,44 +1,122 @@
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { RouterModule, Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-cartcomponent',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
+  templateUrl: './cart.html',
+  styleUrl: './cart.css'
 })
+export class Cartcomponent implements OnInit {
 
-export class CartService {
+  cartItems: any[] = [];
 
-  private cartItems: any[] = [];
-  private cartSubject = new BehaviorSubject<any[]>([]);
-  cart$ = this.cartSubject.asObservable();
+  constructor(private router: Router) {}
 
-  constructor() {
-    const data = localStorage.getItem('cart');
-    if (data) {
-      this.cartItems = JSON.parse(data);
-      this.cartSubject.next(this.cartItems);
+  ngOnInit(): void {
+    this.loadCart();
+  }
+
+  // Load products from localStorage
+  loadCart(): void {
+
+    const savedCart = localStorage.getItem('cart');
+
+    if (savedCart) {
+
+      this.cartItems = JSON.parse(savedCart);
+
+    } else {
+
+      this.cartItems = [];
+
+    }
+
+    console.log('Cart Items:', this.cartItems);
+  }
+
+
+  // Increase quantity
+  increaseQuantity(item: any): void {
+
+    item.quantity = (item.quantity || 1) + 1;
+
+    this.saveCart();
+  }
+
+
+  // Decrease quantity
+  decreaseQuantity(item: any): void {
+
+    if ((item.quantity || 1) > 1) {
+
+      item.quantity--;
+
+      this.saveCart();
     }
   }
 
-  addToCart(product: any): void {
-    this.cartItems.push(product);
-    localStorage.setItem('cart', JSON.stringify(this.cartItems));
-    this.cartSubject.next(this.cartItems);
-  }
 
-  getCartItems(): any[] {
-    return this.cartItems;
-  }
+  // Remove product
+  removeItem(index: number): void {
 
-  removeFromCart(index: number): void {
     this.cartItems.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(this.cartItems));
-    this.cartSubject.next(this.cartItems);
+
+    this.saveCart();
   }
 
-  clearCart(): void {
-    this.cartItems = [];
-    localStorage.removeItem('cart');
-    this.cartSubject.next(this.cartItems);
+
+  // Save cart
+  saveCart(): void {
+
+    localStorage.setItem(
+      'cart',
+      JSON.stringify(this.cartItems)
+    );
   }
+
+
+  // Calculate total
+  getTotal(): number {
+
+    return this.cartItems.reduce(
+      (total: number, item: any) => {
+
+        const price = Number(item.price) || 0;
+
+        const quantity = Number(item.quantity) || 1;
+
+        return total + (price * quantity);
+
+      },
+      0
+    );
+  }
+
+
+  // Buy Now
+  buyNow(): void {
+
+    if (this.cartItems.length === 0) {
+
+      alert('Your cart is empty!');
+
+      return;
+    }
+
+    // Store products for Buy Now page
+    localStorage.setItem(
+      'buyNowItems',
+      JSON.stringify(this.cartItems)
+    );
+
+    // Go to Buy Now page
+    this.router.navigate(['/buynow']);
+  }
+
 }

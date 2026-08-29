@@ -1,95 +1,183 @@
-body{
-    background:#eef6ff;
+* {
+  box-sizing: border-box;
 }
 
-.page-wrapper{
-    width:95%;
-    margin:20px auto;
+html, body, app-root {
+  height: 100%;
+  background: #000000; /* Outside background is now black */
 }
 
-.card{
-    display:flex;
-    gap:25px;
-    background:#fff;
-    margin-bottom:25px;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+.page-wrapper {
+  width: 100%;
+  max-width: none;
+ margin: 0px auto;
+  padding: 30px 20px;
+  min-height: 100vh;
+  background-color: #000000; /* Wrapper background is black */
+  box-sizing: border-box;
 }
 
-.product-image{
-    width:350px;
-    height:350px;
-    object-fit:cover;
-    border-radius:15px;
+/* CARD - White card background with black text */
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 25px;
+  background: #ffffff;        /* Card background is white */
+  color: #000000;             /* Default text color inside card is black */
+  border: 1px solid #e0e0e0;  /* Subtle border to define the card */
+  margin-bottom: 25px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+  transition: .3s;
 }
 
-.details{
-    flex:1;
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
 }
 
-.details h2{
-    color:#ac1896;
-    font-size:30px;
+/* IMAGE */
+.image-container {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.details h3{
-    font-size:28px;
-    margin:10px 0;
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .3s;
 }
 
-.old-price{
-    text-decoration:line-through;
-    color:gray;
-    margin-right:10px;
+.image-container:hover .product-image {
+  transform: scale(1.05);
 }
 
-.discount{
-    color:green;
-    font-weight:bold;
+/* DETAILS */
+.details {
+  flex: 1;
+  min-width: 0;
+  color: #000000;
 }
 
-ul{
-    line-height:2;
+.details h2 {
+  color: #000000;             /* Product title in black */
+  font-size: 30px;
+  margin: 0 0 8px 0;
 }
 
-.btn-group{
-    margin-top:20px;
-    display:flex;
-    gap:15px;
+.details h3 {
+  color: #000000;             /* Price in black */
+  font-size: 28px;
+  margin: 10px 0;
 }
 
-.buy{
-    background:#ff9800;
-    color:#fff;
-    border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    cursor:pointer;
+/* PRICE */
+.old-price {
+  text-decoration: line-through;
+  color: #666666;             /* Gray for old price */
+  margin-right: 10px;
 }
 
-.cart{
-    background:#28a745;
-    color:#fff;
-    border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    cursor:pointer;
+.discount {
+  color: #28a745;             /* Green for discount */
+  font-weight: bold;
 }
 
-@media(max-width:768px){
-
-.card{
-    flex-direction:column;
+/* FEATURES */
+ul {
+  color: #333333;             /* Dark text for feature bullet points */
+  line-height: 2;
+  padding-left: 20px;
 }
 
-.product-image{
-    width:100%;
-    height:auto;
+ul li {
+  color: #333333;
 }
 
-.btn-group{
-    flex-direction:column;
+/* BUTTONS */
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
+.buy {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.buy:hover {
+  background: #e68900;
+}
+
+.cart {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.cart:hover {
+  background: #218838;
+}
+
+/* DETAILS BUTTON */
+.details-btn {
+  border: none;
+  background: transparent;
+  color: #ac1896;             
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0;
+}
+
+.details-btn:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 350px;
+  }
+
+  .product-image {
+    object-fit: contain;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buy,
+  .cart {
+    width: 100%;
+  }
 }
