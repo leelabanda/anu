@@ -4,9 +4,25 @@
     <div class="logo">
         <img src="https://i.postimg.cc/rsMrn0cX/3d-prinitn-logo.png" alt="Logo"> <a routerLink="/">ANU 3D Printing</a>
     </div>
+        <!-- CENTER - PRODUCT SEARCH -->
+    <div class="search-container">
 
+        <input
+            type="text"
+            placeholder="Search products..."
+            [(ngModel)]="searchText"
+            (keyup.enter)="searchProduct()">
 
-   
+        <button
+            type="button"
+            class="search-btn"
+            (click)="searchProduct()">
+
+            🔍
+
+        </button>
+
+    </div>
 
 
     <!-- RIGHT -->
