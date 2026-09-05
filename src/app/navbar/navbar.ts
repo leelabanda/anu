@@ -24,7 +24,9 @@ export class NavbarComponent {
   searchProducts(): void {
 
     const keyword = this.searchText.trim();
-
+    if(!keyword){
+      this.router.navigate(['/products']);
+    }
     if (!keyword) {
       this.router.navigate(['/products']);
       return;

@@ -46,8 +46,11 @@
                 </p>
 
                 <h4>
-                    ₹{{ item.price }}
+                    ₹{{ item.currentPrice}} * {{item.quantity}}
                 </h4>
+                <h3 class="subTotal">
+                    SubTotal:₹{{ item.currentPrice }} * {{item.quantity}}
+                </h3>
 
 
                 <!-- QUANTITY -->

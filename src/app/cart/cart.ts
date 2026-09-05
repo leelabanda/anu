@@ -87,7 +87,7 @@ export class Cartcomponent implements OnInit {
     return this.cartItems.reduce(
       (total: number, item: any) => {
 
-        const price = Number(item.price) || 0;
+        const price = Number(item.currentPrice) || 0;
 
         const quantity = Number(item.quantity) || 1;
 
