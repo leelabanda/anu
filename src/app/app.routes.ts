@@ -116,6 +116,13 @@ export const routes: Routes = [
       renderMode: 'client'
     }
   },
+  {
+  path: 'products',
+  component: DetProductComponent,
+  data: {
+    renderMode: 'client'
+  }
+},
 
   // =========================
   // BUY NOW

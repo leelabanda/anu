@@ -22,7 +22,6 @@ interface Product {
   styleUrls: ['./det-product.css']
 })
 export class DetProductComponent implements OnInit {
-
   products: Product[] = [
 
     {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, mapToResolve, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -10,6 +10,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-details.css']
 })
 export class ProductsComponent {
+  searchText = '';
+filteredProducts :any[]=[];
+constructor(
+  private route: ActivatedRoute,
+  private router: Router
+) {}
+
+ngOnInit(): void {
+
+  this.route.queryParams.subscribe(params => {
+
+    this.searchText = params['search'] || '';
+
+    const keyword =
+      this.searchText.toLowerCase().trim();
+
+    if (!keyword) {
+      this.filteredProducts = [...this.products];
+      return;
+    }
+
+    this.filteredProducts = this.products.filter(product => {
+
+     
+      return product.name.toLowerCase().includes(keyword);
+
+    });
+
+  });
+
+}
+
 
   products: any[] = [
 
@@ -49,7 +81,7 @@ export class ProductsComponent {
       id: 5,
       name: 'Couples Photo Frame',
       currentPrice: 1200,
-      oldPrice: 1500,
+      mrp: 1500,
       image: 'https://i.postimg.cc/ZYLxQdQY/Whats-App-Image-2025-12-10-at-19-33-29-dd4202ed.jpg',
     
     },
@@ -192,9 +224,7 @@ export class ProductsComponent {
 
 
 
- 
 
-  constructor(private router: Router) {}
 
   // ==============================
   // OPEN PRODUCT DETAILS
@@ -264,5 +294,6 @@ export class ProductsComponent {
     );
 
   }
+  
 
 }

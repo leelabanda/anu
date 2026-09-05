@@ -12,26 +12,25 @@
     </div>
 
 
-    <!-- CENTER - PRODUCT SEARCH -->
+    <!-- SEARCH -->
     <div class="search-container">
 
         <input
             type="text"
             placeholder="Search products..."
             [(ngModel)]="searchText"
-            (keyup.enter)="searchProduct()">
+            (keyup.enter)="searchProducts()">
 
         <button
             type="button"
             class="search-btn"
-            (click)="searchProduct()">
+            (click)="searchProducts()">
 
             🔍
 
         </button>
 
     </div>
-
 
     <!-- RIGHT -->
     <div class="nav-buttons">

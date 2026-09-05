@@ -19,21 +19,24 @@ export class NavbarComponent {
   }
   searchText: string = '';
 
-    constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
-    searchProduct() {
+  searchProducts(): void {
 
-        const value = this.searchText.trim();
+    const keyword = this.searchText.trim();
 
-        if (value) {
-            this.router.navigate(
-                ['/products'],
-                {
-                    queryParams: {
-                        search: value
-                    }
-                }
-            );
-        }
+    if (!keyword) {
+      this.router.navigate(['/products']);
+      return;
     }
+
+    this.router.navigate(
+      ['/products'],
+      {
+        queryParams: {
+          search: keyword
+        }
+      }
+    );
+  }
 }

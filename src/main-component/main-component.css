@@ -179,35 +179,51 @@ body {
 }
 
 
-/* MAIN TITLE */
-
 .content h1 {
     color: white;
-
     font-size: 70px;
-
     line-height: 1.05;
-
     margin-bottom: 25px;
+
+    animation: letterReveal 1.2s ease-out;
 }
 
 .content h1 span {
     color: #ffb400;
 }
 
-
-/* DESCRIPTION */
-
 .content p {
     color: #ddd;
-
     font-size: 21px;
-
     line-height: 1.6;
-
     margin-bottom: 35px;
+
+    animation: fadeIn 1.8s ease;
 }
 
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        letter-spacing: 15px;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        letter-spacing: normal;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 /* =====================================================
    BUTTONS
