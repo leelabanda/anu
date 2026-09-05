@@ -1,10 +1,14 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes)
+    provideRouter(routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top', // <-- This forces the page back to the top on navigation
+      })
+    )
   ]
 };
