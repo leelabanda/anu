@@ -1,10 +1,18 @@
 <nav class="navbar">
 
-    <!-- LEFT -->
+    <!-- LEFT - LOGO -->
     <div class="logo">
-        <img src="https://i.postimg.cc/rsMrn0cX/3d-prinitn-logo.png" alt="Logo"> <a routerLink="/">ANU 3D Printing</a>
+        <img
+            src="https://i.postimg.cc/rsMrn0cX/3d-prinitn-logo.png"
+            alt="ANU 3D Printing Logo">
+
+        <a routerLink="/main-component">
+            ANU 3D Printing
+        </a>
     </div>
-        <!-- CENTER - PRODUCT SEARCH -->
+
+
+    <!-- CENTER - PRODUCT SEARCH -->
     <div class="search-container">
 
         <input
@@ -28,11 +36,11 @@
     <!-- RIGHT -->
     <div class="nav-buttons">
 
-        <a href="login" class="login-btn">
+        <a routerLink="/login" class="login-btn">
             Login
         </a>
 
-        <a href="register" class="register-btn">
+        <a routerLink="/register" class="register-btn">
             Register
         </a>
 
