@@ -14,7 +14,7 @@
             rgba(255, 255, 255, 0.94),
             rgba(255, 255, 255, 0.94)
         ),
-        url('/d4118ecd-81c9-4bb8-a6ac-c76ad8b11ef5.jpg');
+        url('/anu/d4118ecd-81c9-4bb8-a6ac-c76ad8b11ef5.jpg');
 
     background-size: cover;
     background-position: center;
@@ -308,7 +308,7 @@
 @media (max-width: 600px) {
 
     .checkout-page {
-        padding: 15px 10px;
+        padding: 15px 10px 100px;
     }
 
     .checkout-container {
