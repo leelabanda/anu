@@ -157,7 +157,7 @@ export class BuyNowComponent implements OnInit {
   getItemTotal(item: any): number {
 
     const price =
-      Number(item.price) || 0;
+      Number(item.currentPrice) || 0;
 
     const quantity =
       Number(item.quantity) || 1;
@@ -286,7 +286,7 @@ export class BuyNowComponent implements OnInit {
           Number(item.quantity) || 1;
 
         const price =
-          Number(item.price) || 0;
+          Number(item.currentPrice) || 0;
 
         const amount =
           price * quantity;
