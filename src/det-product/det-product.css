@@ -1,7 +1,14 @@
 /* =========================
    GLOBAL
 ========================= */
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #000;
+}
 * {
   box-sizing: border-box;
 }
@@ -13,7 +20,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f7f7f7;
+  background: black;
   color: #222;
 }
 
@@ -32,7 +39,7 @@ body {
 
   padding: 12px 5%;
 
-  background: white;
+  background: black;
 
   border-bottom: 2px solid #ac1896;
 
@@ -114,7 +121,8 @@ nav a:hover {
 
 .details-page {
   min-height: 600px;
-  background: #f7f7f7;
+  background: #000;
+  padding-top:15px ;
   padding-bottom: 30px;
 }
 
@@ -155,7 +163,7 @@ nav a:hover {
 
   margin: 15px auto 30px;
 
-  padding: 25px;
+  padding:25px;
 
   background: white;
 
@@ -184,7 +192,7 @@ nav a:hover {
 
   flex-shrink: 0;
 
-  background: #fafafa;
+  background: #000;
 
   border-radius: 12px;
 

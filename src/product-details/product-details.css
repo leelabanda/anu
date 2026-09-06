@@ -4,7 +4,7 @@
 
 html, body, app-root {
   height: 100%;
-  background: #000000; /* Outside background is now black */
+  background:black; /* Outside background is now black */
 }
 
 .page-wrapper {

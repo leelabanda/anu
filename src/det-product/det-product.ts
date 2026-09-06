@@ -424,50 +424,54 @@ export class DetProductComponent implements OnInit {
 
   }
 
-  addToCart(): void {
+addToCart(): void {
 
-    if (!this.product) {
-      return;
-    }
+  if (!this.product) {
+    return;
+  }
 
-    let cart = JSON.parse(
-      localStorage.getItem('cart') || '[]'
-    );
+  let cart: any[] = JSON.parse(
+    localStorage.getItem('cart') || '[]'
+  );
 
-    const existing = cart.find(
-      (item: any) => item.id === this.product.id
-    );
+  const existingProduct = cart.find(
+    (item: any) => item.id === this.product.id
+  );
 
-    if (existing) {
+  if (existingProduct) {
 
-      existing.qty += this.quantity;
+    // selected quantity becomes cart quantity
+    existingProduct.quantity = this.quantity;
 
-    } else {
+    existingProduct.currentPrice = this.product.price;
+    existingProduct.name = this.product.name;
+    existingProduct.image = this.product.image;
+    existingProduct.description = this.product.description;
 
-      cart.push({
+  } else {
 
-        id: this.product.id,
-
-        name: this.product.name,
-
-        price: this.product.price,
-
-        image: this.product.image,
-
-        qty: this.quantity
-
-      });
-
-    }
-
-    localStorage.setItem(
-      'cart',
-      JSON.stringify(cart)
-    );
-
-    alert('Added to cart ✅');
+    cart.push({
+      id: this.product.id,
+      name: this.product.name,
+      currentPrice: this.product.price,
+      image: this.product.image,
+      description: this.product.description,
+      quantity: this.quantity
+    });
 
   }
+
+  localStorage.setItem(
+    'cart',
+    JSON.stringify(cart)
+  );
+
+  alert(
+    this.product.name +
+    ' added to cart with quantity ' +
+    this.quantity
+  );
+}
 
   buyNow(): void {
 

@@ -243,38 +243,41 @@ ngOnInit(): void {
   // ADD TO CART
   // ==============================
 
-  addToCart(product: any): void {
+// ==============================
+// ADD TO CART - PRODUCTS PAGE
+// ==============================
 
-    let cart: any[] = JSON.parse(
-      localStorage.getItem('cart') || '[]'
-    );
+addToCart(product: any): void {
 
-    const existingProduct = cart.find(
-      item => item.id === product.id
-    );
+  let cart: any[] = JSON.parse(
+    localStorage.getItem('cart') || '[]'
+  );
 
-    if (existingProduct) {
+  const existingProduct = cart.find(
+    (item: any) => item.id === product.id
+  );
 
-      existingProduct.quantity =
-        (existingProduct.quantity || 1) + 1;
+  if (existingProduct) {
 
-    } else {
+    existingProduct.quantity =
+      (existingProduct.quantity || 1) + 1;
 
-      cart.push({
-        ...product,
-        quantity: 1
-      });
+  } else {
 
-    }
-
-    localStorage.setItem(
-      'cart',
-      JSON.stringify(cart)
-    );
-
-    alert(product.name + ' added to cart');
+    cart.push({
+      ...product,
+      quantity: 1
+    });
 
   }
+
+  localStorage.setItem(
+    'cart',
+    JSON.stringify(cart)
+  );
+
+  alert(product.name + ' added to cart');
+}
 
   // ==============================
   // DISCOUNT
